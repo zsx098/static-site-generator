@@ -15,7 +15,7 @@ def build():
         t = env.get_template('posts/{}'.format(template))
         posts.append({'posted': t.module.posted(), 
                       'title': t.module.title(),
-                      'filename': os.path.split(t.filename)[1]}
+                      'filename': os.path.split(t.filename)[1]})
         with open('build/posts/{}'.format(template), "wb") as f:
             f.write(bytes(t.render(), "utf-8"))
     
